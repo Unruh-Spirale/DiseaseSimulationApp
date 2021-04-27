@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Data {
+public class Simulation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,10 +24,10 @@ public class Data {
     @JoinColumn(name = "id_data")
     private List<Calc> calcs;
 
-    public Data() {
+    public Simulation() {
     }
 
-    public Data(String nameSimulation, int population, int initialInfected, double diseaseFactor, double mortalityFactor, int daysToRecovery, int daysToDeath, int daysOfSimulation, List<Calc> calcs) {
+    public Simulation(String nameSimulation, int population, int initialInfected, double diseaseFactor, double mortalityFactor, int daysToRecovery, int daysToDeath, int daysOfSimulation, List<Calc> calcs) {
         this.nameSimulation = nameSimulation;
         this.population = population;
         this.initialInfected = initialInfected;
