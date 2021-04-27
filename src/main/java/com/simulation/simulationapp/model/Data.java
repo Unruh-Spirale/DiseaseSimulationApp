@@ -1,6 +1,8 @@
 package com.simulation.simulationapp.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Data {
@@ -18,10 +20,14 @@ public class Data {
     private int daysToDeath;
     private int daysOfSimulation;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_data")
+    private List<Calc> calcs;
+
     public Data() {
     }
 
-    public Data(String nameSimulation, int population, int initialInfected, double diseaseFactor, double mortalityFactor, int daysToRecovery, int daysToDeath, int daysOfSimulation) {
+    public Data(String nameSimulation, int population, int initialInfected, double diseaseFactor, double mortalityFactor, int daysToRecovery, int daysToDeath, int daysOfSimulation, List<Calc> calcs) {
         this.nameSimulation = nameSimulation;
         this.population = population;
         this.initialInfected = initialInfected;
@@ -30,6 +36,7 @@ public class Data {
         this.daysToRecovery = daysToRecovery;
         this.daysToDeath = daysToDeath;
         this.daysOfSimulation = daysOfSimulation;
+        this.calcs = new ArrayList<>();
     }
 
     public Long getId() {
@@ -102,5 +109,13 @@ public class Data {
 
     public void setDaysOfSimulation(int daysOfSimulation) {
         this.daysOfSimulation = daysOfSimulation;
+    }
+
+    public List<Calc> getCalcs() {
+        return calcs;
+    }
+
+    public void setCalcs(List<Calc> calcs) {
+        this.calcs = calcs;
     }
 }
