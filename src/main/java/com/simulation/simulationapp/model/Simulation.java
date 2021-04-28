@@ -22,12 +22,12 @@ public class Simulation {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_data")
-    private List<Calc> calcs;
+    private List<Calc> calcs = new ArrayList<>();
 
     public Simulation() {
     }
 
-    public Simulation(String nameSimulation, int population, int initialInfected, double diseaseFactor, double mortalityFactor, int daysToRecovery, int daysToDeath, int daysOfSimulation, List<Calc> calcs) {
+    public Simulation(String nameSimulation, int population, int initialInfected, double diseaseFactor, double mortalityFactor, int daysToRecovery, int daysToDeath, int daysOfSimulation) {
         this.nameSimulation = nameSimulation;
         this.population = population;
         this.initialInfected = initialInfected;
@@ -36,7 +36,6 @@ public class Simulation {
         this.daysToRecovery = daysToRecovery;
         this.daysToDeath = daysToDeath;
         this.daysOfSimulation = daysOfSimulation;
-        this.calcs = new ArrayList<>();
     }
 
     public Long getId() {
