@@ -1,5 +1,6 @@
 package com.simulation.simulationapp.service.impl;
 
+import com.simulation.simulationapp.model.Calc;
 import com.simulation.simulationapp.model.Simulation;
 import com.simulation.simulationapp.repository.CalcRepository;
 import com.simulation.simulationapp.repository.SimulationRepository;
@@ -52,18 +53,12 @@ public class SimulationServiceImpl implements SimulationService {
         Optional<Simulation> optional = simulationRepository.findById(id);
         Simulation simulation = optional.get();
 
-        int idCalcSize = simulation.getCalcs().size();
-        long[] idCalcs = new long[idCalcSize];
-
-        for(int i = 0; i < idCalcSize; i++){
-            idCalcs[i] = simulation.getCalcs().get(i).getIdCalc();
-        }
+        List<Long> collect = simulation.getCalcs().stream().map(calc -> calc.getIdCalc()).collect(Collectors.toList());
 
         simulation.getCalcs().clear();
 
-
-        for(int i = 0; i < simulation.getCalcs().size(); i++){
-            calcRepository.deleteById(idCalcs[i]);
+        for(Long idCalc: collect){
+            calcRepository.deleteById(idCalc);
         }
 
         simulation.setNameSimulation(updateSimulation.getNameSimulation());
@@ -76,6 +71,8 @@ public class SimulationServiceImpl implements SimulationService {
         simulation.setDaysOfSimulation(updateSimulation.getDaysOfSimulation());
 
         calcService.calcSimulation(simulation);
+
+
 
         simulationRepository.save(simulation);
 
