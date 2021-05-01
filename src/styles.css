@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.table-pattern{
+  background-color: #faffff;
+}
+
+.table-row{
+  cursor: pointer;
+}
+
+.data-container{
+  padding: 15px;
+  margin: 15px;
+}
+
+.error{
+  background-color: red;
+  font-size: 11px;
+  color: white;
+  padding: 4px 8px;
+}

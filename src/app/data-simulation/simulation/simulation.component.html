@@ -1,0 +1,74 @@
+<app-header>
+  <h1 levels>Disease application simulation</h1>
+  <div content>
+    <p> {{dataSimulation.nameSimulation }}</p>
+  </div>
+</app-header>
+
+<div class="data-container">
+  <div class="row">
+    <div class="col-sm-12">
+      <table class="table table-striped table-pattern">
+        <thead>
+        <tr>
+          <th>Simulation name</th>
+          <th>Population</th>
+          <th>Initial infected</th>
+          <th>Disease factor</th>
+          <th>Mortality factor</th>
+          <th>Days to recovery</th>
+          <th>Days to death</th>
+          <th>Days of simulation</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>{{dataSimulation.nameSimulation}}</td>
+          <td>{{dataSimulation.population}}</td>
+          <td>{{dataSimulation.initialInfected}}</td>
+          <td>{{dataSimulation.diseaseFactor}}</td>
+          <td>{{dataSimulation.mortalityFactor}}</td>
+          <td>{{dataSimulation.daysToRecovery}}</td>
+          <td>{{dataSimulation.daysToDeath}}</td>
+          <td>{{dataSimulation.daysOfSimulation}}</td>
+          <td><button class="btn btn-warning text-uppercase" [routerLink]="['/simulations/update', dataSimulation.id]">update</button> </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <table class="table table-striped table-pattern">
+        <thead>
+        <tr>
+          <th>Infected people</th>
+          <th>Susceptible people</th>
+          <th>Deaths</th>
+          <th>Recoveries</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let calc of calcSimulation">
+          <td>{{calc.infectedPeople}}</td>
+          <td>{{calc.susceptiblePeople}}</td>
+          <td>{{calc.deaths}}</td>
+          <td>{{calc.recoveries}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-6">
+      <highcharts-chart
+        [Highcharts]="Highcharts"
+        [options]="chartOptions"
+
+        style="width: 100%; height: 400px; display: block;"
+      ></highcharts-chart>
+
+      <p class="total-deaths">total deaths: {{totalDeaths}}</p>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+.header{
+  background-image: url('../../../assets/background-img.jpg');
+  background-position: 60% 50%;
+  background-repeat: no-repeat;
+  height: 190px;
+
+  margin-bottom: 50px;
+  padding: 30px 15px 30px 15px;
+}
+.levels{
+  text-transform: uppercase;
+}
+.other-content{
+  font-size: 18px;
+}
+

@@ -1,0 +1,41 @@
+<app-header>
+  <h1 levels>Disease application simulation</h1>
+  <p content>List of simulations</p>
+</app-header>
+
+<div class="data-container">
+  <table *ngIf="dataSimulation && dataSimulation.length>0; else noDataSimulation" class="table table-striped table-hover table-pattern">
+    <thead>
+    <tr>
+      <th>Simulation name</th>
+      <th>Population</th>
+      <th>Initial infected</th>
+      <th>Disease factor</th>
+      <th>Mortality factor</th>
+      <th>Days to recovery</th>
+      <th>Days to death</th>
+      <th>Days of simulation</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of dataSimulation" [routerLink]="['/simulations', data.id]" class="table-row">
+      <td>{{data.nameSimulation}}</td>
+      <td>{{data.population}}</td>
+      <td>{{data.initialInfected}}</td>
+      <td>{{data.diseaseFactor}}</td>
+      <td>{{data.mortalityFactor}}</td>
+      <td>{{data.daysToRecovery}}</td>
+      <td>{{data.daysToDeath}}</td>
+      <td>{{data.daysOfSimulation}}</td>
+      <td><button class="btn btn-danger text-uppercase" (click)="deleteSimulation(data.id, $event)">&times;</button> </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noDataSimulation>
+    <div class="no-data-simulation">
+      <p>Currently no simulations in application</p>
+    </div>
+  </ng-template>
+</div>

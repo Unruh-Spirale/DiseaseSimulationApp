@@ -1,0 +1,41 @@
+.sidebar{
+  background-image: url('../../../assets/sidebar-img.jpg');
+  width: 180px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+}
+.logo{
+  width: 180px;
+  height: 190px;
+  margin-right: 20px;
+}
+ul{
+  padding-left: 0;
+  list-style: none;
+}
+li{
+  background-color: white;
+  text-transform: uppercase;
+  padding: 15px;
+  font-weight: 700;
+  border-bottom: 1px solid gainsboro;
+}
+li.active{
+  background-color: #cee2e6;
+}
+li:hover{
+  background-color: #cdcde3;
+  cursor: pointer;
+}
+
+.footer{
+  width: 180px;
+  position: fixed;
+  bottom: 0;
+}
+.author{
+  text-decoration: none;
+  color: grey;
+  font-size: 11px;
+}

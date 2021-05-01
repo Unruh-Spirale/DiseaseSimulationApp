@@ -1,0 +1,80 @@
+<app-header>
+  <h1 levels>disease application simulation</h1>
+  <div content>
+    <p>New Simulation</p>
+  </div>
+</app-header>
+
+<div class="data-container">
+  <form [formGroup]="simulationForm">
+
+    <div class="row form-group">
+      <div class="col-sm-3">
+        <label for="simulationName">Simulation name</label>
+        <input formControlName="nameSimulation" type="text" id="simulationName" placeholder="simulation name" class="form-control">
+        <p *ngIf="!simulationForm.get('nameSimulation').valid && simulationForm.get('nameSimulation').dirty" class="error">
+          This field is required
+        </p>
+      </div>
+      <div class="col-sm-3">
+        <label for="population">Population</label>
+        <input formControlName="population" type="number" id="population" placeholder="population" class="form-control">
+        <p *ngIf="!simulationForm.get('population').valid && simulationForm.get('population').dirty" class="error">
+          This field is required and must be a number
+        </p>
+      </div>
+      <div class="col-sm-3">
+        <label for="initialInfected">Initial infected</label>
+        <input formControlName="initialInfected" type="number" id="initialInfected" placeholder="initial infected" class="form-control">
+        <p *ngIf="!simulationForm.get('initialInfected').valid && simulationForm.get('initialInfected').dirty" class="error">
+          This field is required and must be a number
+        </p>
+      </div>
+      <div class="col-sm-3">
+        <label for="diseaseFactor">Disease factor</label>
+        <input formControlName="diseaseFactor" type="number" id="diseaseFactor" placeholder="disease factor" class="form-control">
+        <p *ngIf="!simulationForm.get('diseaseFactor').valid && simulationForm.get('diseaseFactor').dirty" class="error">
+          This field is required and must be a number
+        </p>
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col-sm-3">
+        <label for="mortalityFactor">Mortality factor</label>
+        <input formControlName="mortalityFactor" type="number" id="mortalityFactor" placeholder="mortality factor" class="form-control">
+        <p *ngIf="!simulationForm.get('mortalityFactor').valid && simulationForm.get('mortalityFactor').dirty" class="error">
+          This field is required and must be a number between 0 to 1
+        </p>
+      </div>
+      <div class="col-sm-3">
+        <label for="daysToRecovery">Days to recovery</label>
+        <input formControlName="daysToRecovery" type="number" id="daysToRecovery" placeholder="days to recovery" class="form-control">
+        <p *ngIf="!simulationForm.get('daysToRecovery').valid && simulationForm.get('daysToRecovery').dirty" class="error">
+          This field is required and must be a number
+        </p>
+      </div>
+      <div class="col-sm-3">
+        <label for="daysToDeath">Days to death</label>
+        <input formControlName="daysToDeath" type="number" id="daysToDeath" placeholder="days to death" class="form-control">
+        <p *ngIf="!simulationForm.get('daysToDeath').valid && simulationForm.get('daysToDeath').dirty" class="error">
+          This field is required and must be a number
+        </p>
+      </div>
+      <div class="col-sm-3">
+        <label for="daysOfSimulation">Days of simulation</label>
+        <input formControlName="daysOfSimulation" type="number" id="daysOfSimulation" placeholder="days of simulation" class="form-control">
+        <p *ngIf="!simulationForm.get('daysOfSimulation').valid && simulationForm.get('daysOfSimulation').dirty" class="error">
+          This field is required and must be a number
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <button [disabled]="simulationForm.invalid" (click)="addSimulation()" type="submit" class="btn btn-primary float-right text-uppercase">Add simulation</button>
+      </div>
+    </div>
+  </form>
+
+</div>
