@@ -9,6 +9,8 @@ import {HighchartsChartModule} from 'highcharts-angular';
 import { NewSimulationComponent } from './new-simulation/new-simulation.component';
 import { UpdateSimulationComponent } from './update-simulation/update-simulation.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { HistoryComponent } from './history/history.component';
 
 
 
@@ -18,7 +20,9 @@ import {ReactiveFormsModule} from '@angular/forms';
     DataSimulationListComponent,
     SimulationComponent,
     NewSimulationComponent,
-    UpdateSimulationComponent
+    UpdateSimulationComponent,
+    DashboardComponent,
+    HistoryComponent
   ],
   imports: [
     CommonModule,

@@ -4,8 +4,14 @@ import {SimulationComponent} from './simulation/simulation.component';
 import {DataResolveService} from './data-resolve.service';
 import {NewSimulationComponent} from './new-simulation/new-simulation.component';
 import {UpdateSimulationComponent} from './update-simulation/update-simulation.component';
+import {DataSimulationListComponent} from './data-simulation-list/data-simulation-list.component';
+import {HistoryComponent} from './history/history.component';
 
 const DATA_ROUTES: Route[] = [
+  {
+    path: 'simulations',
+    component: DataSimulationListComponent
+  },
   {
     path: 'simulations/:id',
     component: SimulationComponent,
@@ -19,6 +25,10 @@ const DATA_ROUTES: Route[] = [
     path: 'simulations/update/:id',
     component: UpdateSimulationComponent,
     resolve: {dataSimulation: DataResolveService}
+  },
+  {
+    path: 'history',
+    component: HistoryComponent
   }
 ];
 

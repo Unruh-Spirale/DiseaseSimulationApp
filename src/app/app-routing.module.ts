@@ -1,13 +1,14 @@
 import {NgModule} from '@angular/core';
 import {Route, RouterModule} from '@angular/router';
 import {DataSimulationListComponent} from './data-simulation/data-simulation-list/data-simulation-list.component';
+import {DashboardComponent} from './data-simulation/dashboard/dashboard.component';
 
 const APP_ROUTES: Route[] = [
   {
-    path: '', pathMatch: 'full', redirectTo: 'simulations'
+    path: '', pathMatch: 'full', redirectTo: 'dashboard'
   },
   {
-    path: 'simulations', component: DataSimulationListComponent
+    path: 'dashboard', component: DashboardComponent
   }
 ];
 

@@ -1,0 +1,18 @@
+.title{
+  margin-bottom: 100px;
+  text-align: center;
+}
+
+a{
+  color: black;
+}
+.card{
+  border: none;
+  margin-bottom: 20px;
+}
+.card:hover{
+  /*background-color: cornflowerblue;*/
+  background-color: #639eb7;
+  color: white;
+  transform: scale(1.13);
+}
