@@ -12,7 +12,7 @@ In this project user can simulate spread of disease. It is necessary to give a b
 In this repository there are two parts, separate for backend and frontend. In backend there are all calculates and manage the database. In frontend there is GUI.
 On dashboard there is a simple instruction how to use application. At the beginning there are 3 simulations in application. Additionally user can add new simulation, update
 or delete existing simulations. The results of simulations are display in table and as graph. In project it was used Highcharts to present result in graphic form. At the end
-there are some hyperlinks to informations about the biggest epidemics in history.
+there are some hyperlinks to informations about the biggest epidemics in history. Application uses REST architecture to communicates between frontend and backend parts.
 
 ## Technologies
 Project is created with:
